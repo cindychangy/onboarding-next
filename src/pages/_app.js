@@ -1,9 +1,7 @@
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
 import Head from 'next/head';
 import { EuiErrorBoundary } from '@elastic/eui';
 import { Global } from '@emotion/react';
-import { globalStyes } from '../styles/global.styles';
+import { globalStyes } from '../styles/global-styles';
 import '@elastic/eui/dist/eui_theme_light.css';
 
 import { EuiProvider } from '@elastic/eui';
