@@ -1,4 +1,4 @@
-import React from 'react';
+/** @jsxImportSource @emotion/react */
 import StepPlaceholder from '../../../../components/step_placeholder';
 
 const BREADCRUMBS = [

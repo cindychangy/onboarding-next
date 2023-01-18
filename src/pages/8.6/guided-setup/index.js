@@ -28,7 +28,7 @@ const guideCard = css`
 const filterButton = css`
   border-radius: 20px !important;
   min-width: 0 !important;
-  padding: 0 8px !important;
+  padding: 0 16px !important;
   height: 32px !important;
   background: #e9edf3 !important;
 
@@ -166,6 +166,7 @@ const GuidedSetup = () => {
           <EuiFlexGrid
             columns={3}
             gutterSize="l"
+            responsive
             style={{ justifyContent: 'center' }}>
             {GUIDE_DATA.map((guide, index) => (
               <EuiFlexItem

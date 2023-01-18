@@ -145,7 +145,7 @@ const PanelSection = ({
                       size="s"
                       css={css`
                         font-weight: ${euiTheme.font.weight.medium};
-                        lineheight: 1.4;
+                        line-height: 1.4;
                       `}>
                       {step.order}
                     </EuiText>
@@ -196,7 +196,9 @@ const PanelSection = ({
                           <EuiSpacer size="m" />
                           <EuiButton
                             fill
-                            onClick={() => router.push(`${step.stepPath}`)}>
+                            onClick={() =>
+                              router.push(`/8.6/guided-setup/${step.stepPath}`)
+                            }>
                             Start
                           </EuiButton>
                         </EuiFlexItem>

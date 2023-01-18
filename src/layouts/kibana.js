@@ -275,9 +275,14 @@ const KibanaLayout = ({
             {hasSidebar ? (
               children
             ) : (
-              <EuiPageTemplate restrictWidth {...rest}>
+              <div
+                style={{
+                  maxWidth: '1200px',
+                  margin: 'auto',
+                  padding: '0 24px',
+                }}>
                 {children}
-              </EuiPageTemplate>
+              </div>
             )}
           </div>
         </div>
