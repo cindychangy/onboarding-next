@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /** @jsxImportSource @emotion/react */
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
@@ -66,7 +67,7 @@ const PanelSection = ({
   `;
 
   const stepOutline = css`
-    button.euiAccordion__button .euiText.euiText--small {
+    button.euiAccordion__button .guideStep .euiText {
       border: 2px solid ${euiTheme.colors.success};
       border-radius: 50%;
       height: 24px;
@@ -76,7 +77,7 @@ const PanelSection = ({
   `;
 
   const stepStyle = css`
-    button.euiAccordion__button .euiText.euiText--small {
+    button.euiAccordion__button .guideStep .euiText {
       border: 2px solid ${euiTheme.colors.lightShade};
       border-radius: 50%;
       height: 24px;
@@ -90,8 +91,7 @@ const PanelSection = ({
 
   const currentStep = stepNumber === step.order;
   const nowFinished = completedSteps[`step-${step.order}`] === 'done';
-  const stepGif =
-    'https://cindychangy.github.io/platform-onboarding/images/step-complete-animation.gif?v=';
+  const stepGif = '/images/step-complete-animation.gif?v=';
 
   useEffect(() => {
     if (stepNumber !== 0) {
@@ -135,7 +135,8 @@ const PanelSection = ({
             css={accordionStyles}
             buttonContent={
               <EuiFlexGroup gutterSize="none" responsive={false}>
-                <EuiFlexItem grow={false}>
+                {/* Need to add this class "guideStep to target styles */}
+                <EuiFlexItem grow={false} class="guideStep">
                   {(stepComplete && currentStep) ||
                   stepComplete ||
                   nowFinished ? (

@@ -33,7 +33,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/no-unescaped-entities': 'off',
     'react/jsx-key': 'off',
-
+    'next/next/no-img-element': 'off',
     'prefer-object-spread': 'error',
 
     // Use template strings instead of string concatenation

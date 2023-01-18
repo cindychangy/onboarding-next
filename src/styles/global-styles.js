@@ -57,7 +57,7 @@ export const globalStyes = css`
   [aria-labelledby='onboarding-guide'] .euiFlyoutFooter {
     border-radius: 0 0 6px 6px;
     background: #fff;
-    padding: 24px 30px;
+    padding: 22px 30px;
   }
 
   [aria-labelledby='onboarding-guide'] .euiAccordion__buttonContent {

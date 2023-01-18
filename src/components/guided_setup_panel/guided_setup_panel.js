@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -267,7 +268,10 @@ const GuidedSetupPanel = ({
               )}
             </EuiFlyoutBody>
             <EuiFlyoutFooter css={panelFooterBg}>
-              <EuiFlexGroup alignItems="center" justifyContent="center">
+              <EuiFlexGroup
+                alignItems="center"
+                justifyContent="center"
+                gutterSize="none">
                 <EuiButtonEmpty
                   iconType="questionInCircle"
                   iconSide="right"
@@ -309,7 +313,6 @@ const GuidedSetupPanel = ({
                 </EuiButtonEmpty>
                 <EuiSpacer size="s" />
               </EuiFlexGroup>
-              <EuiSpacer size="m" />
             </EuiFlyoutFooter>
           </>
         </EuiFlyout>
