@@ -29,7 +29,7 @@ const GuidedSetup = () => {
 
   const guideCard = css`
     position: relative;
-    min-height: 100px;
+    min-height: 110px;
     width: 380px;
 
     .euiCard__content {
@@ -183,7 +183,6 @@ const GuidedSetup = () => {
                       activeFilter === 'All' && showGuide,
                     ]}
                     onClick={() => handleGuideClick(guide.section, index)}
-                    paddingSize="l"
                     title={
                       <>
                         <EuiSpacer size="s" />
