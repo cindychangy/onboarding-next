@@ -15,7 +15,6 @@ import {
   EuiAvatar,
   EuiTitle,
   EuiText,
-  EuiPageTemplate,
   EuiModal,
   EuiModalBody,
   EuiModalFooter,
