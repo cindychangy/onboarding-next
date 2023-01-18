@@ -11,7 +11,7 @@ export default class MyDocument extends Document {
           <link
             rel="icon"
             type="image/png"
-            href="/images/favicon-16x16.png"
+            href="/images/favicon.png"
             sizes="16x16"
           />
         </Head>
