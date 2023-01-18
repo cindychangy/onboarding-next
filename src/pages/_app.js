@@ -3,9 +3,10 @@ import 'regenerator-runtime/runtime';
 import Head from 'next/head';
 import { EuiErrorBoundary } from '@elastic/eui';
 import { Global } from '@emotion/react';
-import Chrome from '../components/chrome';
-import { Theme } from '../components/theme';
 import { globalStyes } from '../styles/global.styles';
+import '@elastic/eui/dist/eui_theme_light.css';
+
+import { EuiProvider } from '@elastic/eui';
 
 const App = ({ Component, pageProps }) => (
   <>
@@ -13,13 +14,11 @@ const App = ({ Component, pageProps }) => (
       <title>UX Onboarding Prototype</title>
     </Head>
     <Global styles={globalStyes} />
-    <Theme>
-      <Chrome>
-        <EuiErrorBoundary>
-          <Component {...pageProps} />
-        </EuiErrorBoundary>
-      </Chrome>
-    </Theme>
+    <EuiProvider colorMode="light">
+      <EuiErrorBoundary>
+        <Component {...pageProps} />
+      </EuiErrorBoundary>
+    </EuiProvider>
   </>
 );
 
