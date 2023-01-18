@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react';
 import { useState } from 'react';
+import { css } from '@emotion/react';
 import {
   EuiCollapsibleNav,
   EuiCollapsibleNavGroup,
@@ -44,7 +44,6 @@ const KibanaLayout = ({
   loadGif,
   guideIndex,
   data,
-  ...rest
 }) => {
   const { euiTheme } = useEuiTheme();
   const mainWrapper = css`
@@ -260,31 +259,7 @@ const KibanaLayout = ({
               },
             ]}
           />
-
-          {pageHeader && (
-            <div css={header}>
-              <div className="euiPageBody--restrictWidth-default">
-                <EuiTitle size="l">
-                  <h1>{pageHeader}</h1>
-                </EuiTitle>
-              </div>
-            </div>
-          )}
-
-          <div css={contentWrapper} className="fullBody">
-            {hasSidebar ? (
-              children
-            ) : (
-              <div
-                style={{
-                  maxWidth: '1200px',
-                  margin: 'auto',
-                  padding: '0 24px',
-                }}>
-                {children}
-              </div>
-            )}
-          </div>
+          {children}
         </div>
       </>
     );

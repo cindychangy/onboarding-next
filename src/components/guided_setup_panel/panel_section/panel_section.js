@@ -46,7 +46,7 @@ const PanelSection = ({
   `;
 
   const stepDone = css`
-    svg.euiIcon.euiIcon--medium.euiIcon--customColor {
+    .guideStep svg {
       background: ${euiTheme.colors.success};
       border: 2px solid ${euiTheme.colors.success};
       flex-wrap: nowrap;
@@ -57,7 +57,7 @@ const PanelSection = ({
       margin-right: 8px;
     }
 
-    .euiText.euiText--medium {
+    .euiText {
       color: ${euiTheme.colors.title};
     }
 

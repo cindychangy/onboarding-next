@@ -183,34 +183,36 @@ const StepPlaceholder = ({
         loadGif={loadGif}
         guideIndex={guideIndex}>
         {hasSidebar ? (
-          <EuiPageTemplate
-            pageSideBar={
+          <EuiPageTemplate style={{ paddingBlockStart: 0 }}>
+            <EuiPageTemplate.Sidebar>
               <SolutionSidebar section={section} stepNumber={stepNumber} />
-            }>
-            <EuiTitle size="l">
-              <h1>{title}</h1>
-            </EuiTitle>
-            <EuiSpacer size="xl" />
-            <EuiFlexGroup style={{ maxWidth: '1000px' }}>
-              <EuiFlexItem>
-                <EuiLoadingContent lines={8} />
-              </EuiFlexItem>
-              <EuiFlexItem>
-                <EuiLoadingContent lines={6} />
-              </EuiFlexItem>
-            </EuiFlexGroup>
-            <EuiSpacer size="xxl" />
-            <EuiFlexGroup style={{ maxWidth: '1000px' }}>
-              <EuiFlexItem>
-                <EuiLoadingContent lines={12} />
-              </EuiFlexItem>
-            </EuiFlexGroup>
-            <EuiSpacer size="l" />
-            {!hasTour && (
-              <EuiButton onClick={handleCompleteStep} fill>
-                Complete this step
-              </EuiButton>
-            )}
+            </EuiPageTemplate.Sidebar>
+            <EuiPageTemplate.Section>
+              <EuiTitle size="l">
+                <h1>{title}</h1>
+              </EuiTitle>
+              <EuiSpacer size="xl" />
+              <EuiFlexGroup style={{ maxWidth: '1000px' }} grow={0}>
+                <EuiFlexItem>
+                  <EuiLoadingContent lines={8} />
+                </EuiFlexItem>
+                <EuiFlexItem>
+                  <EuiLoadingContent lines={6} />
+                </EuiFlexItem>
+              </EuiFlexGroup>
+              <EuiSpacer size="xxl" />
+              <EuiFlexGroup style={{ maxWidth: '1000px' }} grow={0}>
+                <EuiFlexItem>
+                  <EuiLoadingContent lines={12} />
+                </EuiFlexItem>
+              </EuiFlexGroup>
+              <EuiSpacer size="l" />
+              {!hasTour && (
+                <EuiButton onClick={handleCompleteStep} fill>
+                  Complete this step
+                </EuiButton>
+              )}
+            </EuiPageTemplate.Section>
           </EuiPageTemplate>
         ) : null}
       </KibanaLayout>

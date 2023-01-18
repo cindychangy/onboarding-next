@@ -260,7 +260,7 @@ const GuidedSetupPanel = ({
               {showEndState && (
                 <EuiFlexGroup gutterSize="m" justifyContent="flexEnd">
                   <EuiFlexItem grow={false}>
-                    <EuiButton onClick={() => router.push('/kibana')} fill>
+                    <EuiButton onClick={() => router.push('/8.6/kibana')} fill>
                       Continue using Elastic
                     </EuiButton>
                   </EuiFlexItem>
