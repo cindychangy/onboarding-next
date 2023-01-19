@@ -13,7 +13,10 @@ const NotFoundPage = () => {
       }}>
       <EuiText size="m">
         <h3 style={{ fontWeight: 600 }}>
-          🥸 This prototype has&nbsp;
+          <span role="img" aria-label="emoji">
+            🥸
+          </span>{' '}
+          This prototype has&nbsp;
           <a href="https://platform-onboarding.vercel.app/">moved</a>.
         </h3>
       </EuiText>
