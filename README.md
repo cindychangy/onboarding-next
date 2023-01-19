@@ -1,26 +1,7 @@
-<h1 align="center">
-  UX Guided Onboarding Prototype
-</h1>
-<br><br>
 
-## 🚀 Run this project locally
+<br><br><br><br>
 
-1.  **Clone repo and install dependencies**
-
-    Once the repo has been cloned, run the following commands:
-    
-    ```shell
-    #install dependencies
-    yarn install
-    ```
-
-    ```shell
-    #run the project locally
-    yarn develop
-    ```
-
-2.  **View the site**
-
-    Your site is now running at http://localhost:3000!
-
-3.  **Open the code and start customizing!**
+<div style="margin: auto; max-width: 600px; text-align: center">
+  <span role="img" aria-label="emoji">🥸</span>{' '}
+  ### This prototype has&nbsp;<a href="https://platform-onboarding.vercel.app/">moved</a>.
+</div>
