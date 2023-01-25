@@ -203,7 +203,7 @@ const GuidedSetupProgress = () => {
                           </EuiTextColor>
                         )}{' '}
                         {guide.complete && (
-                          <EuiFlexGroup gutterSize="s">
+                          <EuiFlexGroup gutterSize="s" alignItems="center">
                             <EuiFlexItem grow={false}>
                               <EuiIcon
                                 type="checkInCircleFilled"
