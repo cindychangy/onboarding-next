@@ -207,7 +207,9 @@ const GuidedSetupProgress = () => {
                             <EuiFlexItem grow={false}>
                               <EuiIcon
                                 type="checkInCircleFilled"
-                                color="#00BFB3"
+                                css={css`
+                                  color: ${euiTheme.colors.success};
+                                `}
                               />
                             </EuiFlexItem>
                             <EuiFlexItem grow={false}>
