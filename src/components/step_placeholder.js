@@ -36,6 +36,7 @@ const StepPlaceholder = ({
   const handleCompleteStep = () => {
     setGuideOpen(!guideOpen);
     setConfetti(true);
+    //this is to make gif appear smoother
     setLoadGif(Math.random());
   };
 

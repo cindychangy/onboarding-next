@@ -21,11 +21,9 @@ import { GuideContext } from '../../../context/guide';
 const PanelSection = ({
   step,
   confetti,
-  newUserStartPage,
   stepNumber,
   stepComplete,
   completedSteps,
-  section,
   forceState,
   loadGif,
 }) => {
@@ -111,23 +109,20 @@ const PanelSection = ({
     router.push(`/8.6/guided-setup/${step.stepPath}`);
   };
 
+  const GUIDES_HOMEPAGE = router.pathname.split('/').pop() === 'guided-setup';
+
   const accordionStyles = [
     stepStyle,
-    newUserStartPage && step.order === 1 && stepOutline,
+    GUIDES_HOMEPAGE && step.order === 1 && stepOutline,
     currentStep && stepOutline,
     forceState && stepOutline,
     nowFinished && stepDone,
   ];
 
   const showStartButton =
-    (newUserStartPage !== undefined && step.order === 1) ||
-    (newUserStartPage === false && step.pageProgressOpen) ||
-    (!newUserStartPage !== undefined && step.order === stepNumber + 1);
-
-  const showPanelInitialOpen =
-    (newUserStartPage && step.order === 1) ||
-    (newUserStartPage === false && section === 'Search' && step.order === 1) ||
-    (newUserStartPage === false && section === 'Observe' && step.order === 3);
+    (GUIDES_HOMEPAGE && step.order === 1) ||
+    (GUIDES_HOMEPAGE === false && step.pageProgressOpen) ||
+    (!GUIDES_HOMEPAGE !== undefined && step.order === stepNumber + 1);
 
   return (
     <div id={currentStep && 'currentStep'}>
@@ -171,7 +166,7 @@ const PanelSection = ({
               </EuiFlexGroup>
             }
             paddingSize="none"
-            initialIsOpen={showPanelInitialOpen}>
+            initialIsOpen={GUIDES_HOMEPAGE && step.order === 1}>
             <EuiPanel
               paddingSize="none"
               style={{ position: 'relative', boxShadow: 'none' }}

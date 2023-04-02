@@ -22,7 +22,6 @@ const GuidedSetup = () => {
   const { euiTheme } = useEuiTheme();
   const router = useRouter();
   const [section, setSection] = useState('Observability');
-  const [newUserStartPage, setNewUserStartPage] = useState(true);
   const [activeFilter, setActiveFilter] = useState('All');
   const [guideIndex, setGuideIndex] = useState(0);
 
@@ -96,7 +95,6 @@ const GuidedSetup = () => {
 
     if (section) {
       setSection(section);
-      setNewUserStartPage(true);
     }
   };
 
@@ -107,7 +105,6 @@ const GuidedSetup = () => {
       section={section}
       onClick={() => handleGuideClick(section)}
       completedSteps={COMPLETED_STEPS}
-      newUserStartPage={newUserStartPage}
       guideIndex={guideIndex}>
       <EuiSpacer size="m" />
       <EuiPageTemplate style={{ paddingBlockStart: 0 }} paddingSize="l">

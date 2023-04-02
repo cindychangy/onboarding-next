@@ -26,8 +26,6 @@ import { GUIDE_DATA } from '../../constants/guided-setup.data';
 import { GuideContext } from '../../context/guide';
 
 const GuidedSetupPanel = ({
-  section,
-  newUserStartPage,
   confetti,
   stepNumber,
   onClick,
@@ -41,7 +39,17 @@ const GuidedSetupPanel = ({
   const HEADER_BG = '/images/panel-bg-top.svg';
   const FOOTER_BG = '/images/panel-bg-bottom.svg';
 
+  const mountedStyle = { animation: 'transitionIn 850ms ease-in-out' };
+  const [toggleStep, setToggleStep] = useState(stepNumber);
+  const [showEndState, setShowEndState] = useState(false);
+  const [showZeroState, setShowZeroState] = useState(0);
+  const GUIDES_HOMEPAGE = router.pathname.split('/').pop() === 'guided-setup';
+
   const { guideOpen } = useContext(GuideContext);
+
+  let data = GUIDE_DATA[guideIndex];
+
+  let endGuide = showEndState;
 
   const iconQuestion = css`
     .euiIcon {
@@ -67,16 +75,6 @@ const GuidedSetupPanel = ({
       width: 100%;
     }
   `;
-
-  const mountedStyle = { animation: 'transitionIn 850ms ease-in-out' };
-  const [toggleStep, setToggleStep] = useState(stepNumber);
-  const [showEndState, setShowEndState] = useState(false);
-  const [showZeroState, setShowZeroState] = useState(0);
-  const GUIDES_HOMEPAGE = router.pathname.split('/').pop() === 'guided-setup';
-
-  let data = GUIDE_DATA[guideIndex];
-
-  let endGuide = showEndState;
 
   useEffect(() => {
     if (confetti) {
@@ -122,7 +120,7 @@ const GuidedSetupPanel = ({
           disabled={GUIDES_HOMEPAGE && !guideOpen && true}
           fill>
           Setup guide
-          {newUserStartPage !== undefined ? '' : `: step ${stepNumber}`}
+          {!!GUIDES_HOMEPAGE ? '' : `: step ${stepNumber}`}
         </EuiButton>
       </div>
       {!!guideOpen && (
@@ -238,25 +236,14 @@ const GuidedSetupPanel = ({
                   key={step.order}
                   step={step}
                   confetti={confetti}
-                  newUserStartPage={newUserStartPage}
                   stepNumber={stepNumber}
-                  section={section}
                   stepComplete={step.stepComplete}
                   completedSteps={completedSteps}
                   loadGif={loadGif}
                   forceState={
                     toggleStep === step.order
                       ? 'open'
-                      : '' ||
-                        (toggleStep - 1 === step.order && 'closed') ||
-                        (newUserStartPage === false &&
-                          section === 'Search' &&
-                          step.order === 1 &&
-                          'open') ||
-                        (newUserStartPage === false &&
-                          section === 'Observe' &&
-                          step.order === 3 &&
-                          'open')
+                      : '' || (toggleStep - 1 === step.order && 'closed')
                   }
                 />
               ))}

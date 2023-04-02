@@ -8,7 +8,6 @@ export const GUIDE_DATA = [
       title: 'Learn more about Elastic Enterprise Search',
       url: '#',
     },
-    // started: false,
     media: '<img src="/images/mock-animation.gif">',
     progress: '3/4 steps complete',
     steps: [
@@ -146,7 +145,7 @@ export const GUIDE_DATA = [
         description:
           '<ul><li>Lorem ipsum dolor sit amet, consectetur.</li><li>Sed ut perspiciatis.</li><li>Nemo enim ipsam voluptatem quia.</li></ul>',
         link: null,
-        stepPath: 'security/cases-investigation',
+        stepPath: 'security/cases-investigations',
         order: 4,
       },
     ],

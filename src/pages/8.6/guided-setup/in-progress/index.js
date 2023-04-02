@@ -18,13 +18,12 @@ import {
 } from '@elastic/eui';
 import KibanaLayout from '../../../../layouts/kibana';
 import { GUIDE_DATA } from '../../../../constants/guided-setup.data';
-import { GuideContext } from '../../context/guide';
+import { GuideContext } from '../../../../context/guide';
 
 const GuidedSetupProgress = () => {
   const { euiTheme } = useEuiTheme();
   const router = useRouter();
   const [section, setSection] = useState('Observability');
-  const [newUserStartPage, setNewUserStartPage] = useState(true);
   const [activeFilter, setActiveFilter] = useState('All');
   const [guideIndex, setGuideIndex] = useState(0);
 
@@ -98,7 +97,6 @@ const GuidedSetupProgress = () => {
 
     if (section) {
       setSection(section);
-      setNewUserStartPage(true);
     }
   };
 
@@ -109,7 +107,6 @@ const GuidedSetupProgress = () => {
       section={section}
       onClick={() => handleGuideClick(section)}
       completedSteps={COMPLETED_STEPS}
-      newUserStartPage={newUserStartPage}
       guideIndex={guideIndex}>
       <EuiSpacer size="m" />
       <EuiPageTemplate style={{ paddingBlockStart: 0 }} paddingSize="l">

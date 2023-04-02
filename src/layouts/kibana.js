@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import {
   EuiCollapsibleNav,
@@ -21,28 +22,21 @@ import {
   EuiButtonEmpty,
   EuiSpacer,
   EuiButton,
-  useEuiTheme,
 } from '@elastic/eui';
 import Account from '../components/account';
 import GuidedSetupPanel from '../components/guided_setup_panel/guided_setup_panel';
 
 const KibanaLayout = ({
   onClick,
-  setGuide,
-  section,
   confetti,
-  newUserStartPage,
-  pageHeader,
   stepNumber,
   breadcrumbs,
-  hasSidebar,
   children,
   completedSteps,
   loadGif,
   guideIndex,
-  data,
 }) => {
-  const { euiTheme } = useEuiTheme();
+  const router = useRouter();
   const mainWrapper = css`
     padding-top: 96px; // two top navs
     min-height: 100%;
@@ -51,27 +45,11 @@ const KibanaLayout = ({
     height: 100vh;
   `;
 
-  const contentWrapper = css`
-    display: flex;
-    flex-flow: column nowrap;
-    flex-grow: 1;
-    z-index: 0;
-    position: relative;
-  `;
-
-  const header = css`
-    background: ${euiTheme.colors.body};
-    padding: 45px 0;
-    width: 100%;
-    display: flex;
-    align-items: flex-start;
-    align-content: center;
-    border-bottom: 2px solid ${euiTheme.colors.lightestShade};
-  `;
-
   const [navIsOpen, setNavIsOpen] = useState(false);
   const [exitGuide, setExitGuide] = useState(false);
   const [removeGuideButton, setRemoveGuideButton] = useState(false);
+
+  const PROGRESS_PAGE = router.pathname.split('/').pop() === 'in-progress';
 
   let exitGuideModal;
 
@@ -198,14 +176,12 @@ const KibanaLayout = ({
               },
               {
                 items: [
-                  !removeGuideButton && (
+                  !removeGuideButton && !PROGRESS_PAGE && (
                     <GuidedSetupPanel
                       key="onboarding-setup"
                       onClick={onClick}
                       handleOptOut={handleOptOut}
-                      section={section}
                       confetti={confetti}
-                      newUserStartPage={newUserStartPage}
                       stepNumber={stepNumber}
                       completedSteps={completedSteps}
                       loadGif={loadGif}
