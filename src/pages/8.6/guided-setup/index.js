@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import {
@@ -16,16 +16,18 @@ import {
 } from '@elastic/eui';
 import KibanaLayout from '../../../layouts/kibana';
 import { GUIDE_DATA } from '../../../constants/guided-setup.data';
+import { GuideContext } from '../../../context/guide';
 
 const GuidedSetup = () => {
   const { euiTheme } = useEuiTheme();
   const router = useRouter();
-  const [guideOpen, setGuide] = useState(false);
   const [section, setSection] = useState('Observability');
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [newUserStartPage, setNewUserStartPage] = useState(true);
   const [activeFilter, setActiveFilter] = useState('All');
   const [guideIndex, setGuideIndex] = useState(0);
+
+  const { guideOpen, setGuideOpen } = useContext(GuideContext);
 
   const guideCard = css`
     position: relative;
@@ -90,7 +92,7 @@ const GuidedSetup = () => {
   let COMPLETED_STEPS = {};
 
   const handleGuideClick = (section, index) => {
-    setGuide(!guideOpen);
+    setGuideOpen(!guideOpen);
     setButtonDisabled(!buttonDisabled);
     setGuideIndex(index);
 
@@ -104,7 +106,6 @@ const GuidedSetup = () => {
     <KibanaLayout
       template="empty"
       breadcrumbs={BREADCRUMBS}
-      guideOpen={guideOpen}
       section={section}
       buttonDisabled={buttonDisabled}
       onClick={() => handleGuideClick(section)}

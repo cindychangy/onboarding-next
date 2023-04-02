@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { css } from '@emotion/react';
 import {
   EuiButtonEmpty,
@@ -16,7 +16,7 @@ import {
 } from '@elastic/eui';
 import KibanaLayout from '../layouts/kibana';
 import SolutionSidebar from './solution_sidebar';
-import { GUIDE_DATA } from '../constants/guided-setup.data';
+import { GuideContext } from '../context/guide';
 
 const StepPlaceholder = ({
   title,
@@ -27,24 +27,21 @@ const StepPlaceholder = ({
   hasTour,
   completedSteps,
 }) => {
-  const [guideOpen, setGuide] = useState(false);
   const [confetti, setConfetti] = useState(false);
   const [isTourStep, setIsTourStep] = useState(0);
   const [loadGif, setLoadGif] = useState(0);
 
-  const handleGuideClick = () => {
-    setGuide(!guideOpen);
-  };
+  const { guideOpen, setGuideOpen } = useContext(GuideContext);
 
   const handleCompleteStep = () => {
-    setGuide(true);
+    setGuideOpen(!guideOpen);
     setConfetti(true);
     setLoadGif(Math.random());
   };
 
   const handleTourClick = () => {
     setIsTourStep(isTourStep + 1);
-    setGuide(true);
+    setGuideOpen(!guideOpen);
     setConfetti(true);
     setLoadGif(Math.random());
   };
@@ -172,10 +169,9 @@ const StepPlaceholder = ({
 
       <KibanaLayout
         template="empty"
-        guideOpen={guideOpen}
         confetti={confetti}
         breadcrumbs={breadcrumbs}
-        onClick={handleGuideClick}
+        onClick={() => setGuideOpen(!guideOpen)}
         section={section}
         hasSidebar={hasSidebar}
         stepNumber={stepNumber}

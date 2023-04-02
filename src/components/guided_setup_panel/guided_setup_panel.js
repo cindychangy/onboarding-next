@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import {
@@ -23,9 +23,9 @@ import {
 } from '@elastic/eui';
 import PanelSection from './panel_section/panel_section';
 import { GUIDE_DATA } from '../../constants/guided-setup.data';
+import { GuideContext } from '../../context/guide';
 
 const GuidedSetupPanel = ({
-  guideOpen,
   section,
   buttonDisabled,
   newUserStartPage,
@@ -41,6 +41,9 @@ const GuidedSetupPanel = ({
   const { euiTheme } = useEuiTheme();
   const HEADER_BG = '/images/panel-bg-top.svg';
   const FOOTER_BG = '/images/panel-bg-bottom.svg';
+
+  const { guideOpen } = useContext(GuideContext);
+
   const iconQuestion = css`
     .euiIcon {
       width: 21px;

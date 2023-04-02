@@ -3,6 +3,7 @@ import { EuiErrorBoundary } from '@elastic/eui';
 import { Global } from '@emotion/react';
 import { globalStyes } from '../styles/global-styles';
 import '@elastic/eui/dist/eui_theme_light.css';
+import GuideContextProvider from '../context/guide';
 
 import { EuiProvider } from '@elastic/eui';
 
@@ -14,7 +15,9 @@ const App = ({ Component, pageProps }) => (
     <Global styles={globalStyes} />
     <EuiProvider colorMode="light">
       <EuiErrorBoundary>
-        <Component {...pageProps} />
+        <GuideContextProvider>
+          <Component {...pageProps} />
+        </GuideContextProvider>
       </EuiErrorBoundary>
     </EuiProvider>
   </>

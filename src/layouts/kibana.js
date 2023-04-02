@@ -28,7 +28,6 @@ import GuidedSetupPanel from '../components/guided_setup_panel/guided_setup_pane
 
 const KibanaLayout = ({
   onClick,
-  guideOpen,
   setGuide,
   section,
   confetti,
@@ -205,7 +204,6 @@ const KibanaLayout = ({
                       key="onboarding-setup"
                       onClick={onClick}
                       handleOptOut={handleOptOut}
-                      guideOpen={guideOpen}
                       buttonDisabled={buttonDisabled}
                       section={section}
                       confetti={confetti}

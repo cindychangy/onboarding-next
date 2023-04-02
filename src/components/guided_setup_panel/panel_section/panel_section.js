@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 /** @jsxImportSource @emotion/react */
-import { useEffect } from 'react';
+import { useEffect, useContext } from 'react';
 import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 import {
@@ -16,6 +16,7 @@ import {
   EuiIcon,
   useEuiTheme,
 } from '@elastic/eui';
+import { GuideContext } from '../../../context/guide';
 
 const PanelSection = ({
   step,
@@ -93,6 +94,8 @@ const PanelSection = ({
   const nowFinished = completedSteps[`step-${step.order}`] === 'done';
   const stepGif = '/images/step-complete-animation.gif?v=';
 
+  const { guideOpen, setGuideOpen } = useContext(GuideContext);
+
   useEffect(() => {
     if (stepNumber !== 0) {
       setTimeout(() => {
@@ -102,6 +105,11 @@ const PanelSection = ({
       }, 0);
     }
   }, [stepNumber]);
+
+  const handleStepClick = () => {
+    setGuideOpen(!guideOpen);
+    router.push(`/8.6/guided-setup/${step.stepPath}`);
+  };
 
   const accordionStyles = [
     stepStyle,
@@ -195,11 +203,7 @@ const PanelSection = ({
                       <EuiFlexGroup justifyContent="flexEnd" gutterSize="none">
                         <EuiFlexItem grow={false}>
                           <EuiSpacer size="m" />
-                          <EuiButton
-                            fill
-                            onClick={() =>
-                              router.push(`/8.6/guided-setup/${step.stepPath}`)
-                            }>
+                          <EuiButton fill onClick={handleStepClick}>
                             Start
                           </EuiButton>
                         </EuiFlexItem>

@@ -75,15 +75,11 @@ const VersionSelector = () => {
             router.push('https://super-succotash-b4d4021d.pages.github.io/8.4/')
           }
           fullWidth>
-          v8.4 (Jul 26, 2022) <EuiBadge color="primary">In-progress</EuiBadge>
-        </EuiButton>
-        <EuiSpacer size="s" />
-        <EuiButton disabled onClick={() => '/8.5'} fullWidth>
-          v8.5 (Sep 20, 2022) - Prototype coming soon
+          v8.4 (Jul 26, 2022)
         </EuiButton>
         <EuiSpacer size="s" />
         <EuiButton href={'/8.6'} fullWidth>
-          v8.6 (Nov 15, 2022) <EuiBadge color="primary">In-progress</EuiBadge>
+          v8.6 (Nov 15, 2022)
         </EuiButton>
       </EuiPanel>
     </div>
