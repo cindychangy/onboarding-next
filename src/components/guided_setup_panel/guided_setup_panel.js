@@ -27,7 +27,6 @@ import { GuideContext } from '../../context/guide';
 
 const GuidedSetupPanel = ({
   section,
-  buttonDisabled,
   newUserStartPage,
   confetti,
   stepNumber,
@@ -73,6 +72,7 @@ const GuidedSetupPanel = ({
   const [toggleStep, setToggleStep] = useState(stepNumber);
   const [showEndState, setShowEndState] = useState(false);
   const [showZeroState, setShowZeroState] = useState(0);
+  const GUIDES_HOMEPAGE = router.pathname.split('/').pop() === 'guided-setup';
 
   let data = GUIDE_DATA[guideIndex];
 
@@ -119,7 +119,7 @@ const GuidedSetupPanel = ({
           size="s"
           onClick={onClick}
           key="onboarding-setup-button"
-          disabled={buttonDisabled}
+          disabled={GUIDES_HOMEPAGE && !guideOpen && true}
           fill>
           Setup guide
           {newUserStartPage !== undefined ? '' : `: step ${stepNumber}`}

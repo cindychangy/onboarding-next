@@ -31,7 +31,6 @@ const KibanaLayout = ({
   setGuide,
   section,
   confetti,
-  buttonDisabled,
   newUserStartPage,
   pageHeader,
   stepNumber,
@@ -204,7 +203,6 @@ const KibanaLayout = ({
                       key="onboarding-setup"
                       onClick={onClick}
                       handleOptOut={handleOptOut}
-                      buttonDisabled={buttonDisabled}
                       section={section}
                       confetti={confetti}
                       newUserStartPage={newUserStartPage}

@@ -24,7 +24,6 @@ const GuidedSetupProgress = () => {
   const { euiTheme } = useEuiTheme();
   const router = useRouter();
   const [section, setSection] = useState('Observability');
-  const [buttonDisabled, setButtonDisabled] = useState(true);
   const [newUserStartPage, setNewUserStartPage] = useState(true);
   const [activeFilter, setActiveFilter] = useState('All');
   const [guideIndex, setGuideIndex] = useState(0);
@@ -95,7 +94,6 @@ const GuidedSetupProgress = () => {
 
   const handleGuideClick = (section, index) => {
     setGuideOpen(!guideOpen);
-    setButtonDisabled(!buttonDisabled);
     setGuideIndex(index);
 
     if (section) {
@@ -109,7 +107,6 @@ const GuidedSetupProgress = () => {
       template="empty"
       breadcrumbs={BREADCRUMBS}
       section={section}
-      buttonDisabled={buttonDisabled}
       onClick={() => handleGuideClick(section)}
       completedSteps={COMPLETED_STEPS}
       newUserStartPage={newUserStartPage}
